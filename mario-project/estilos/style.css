@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+h1 {
+    color: white;
+    font-size: 3em;
+}
+
+p {
+    color: white;
+    font-size: 1.5em;
+}
+
+#display-outside {
+    display: flex;
+    justify-content: center;
+}
+
+#display {
+    background-image: linear-gradient(360deg, rgb(192, 234, 255), rgb(27, 141, 255));
+    border: 4px solid black;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pipe {
+    width: 80px;
+    position: absolute;
+    bottom: 0px;
+    right: -15%;
+    animation: pipe-animation 1s infinite linear;
+}
+
+.mario {
+    width: 130px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.jump {
+    animation: jump .8s infinite; 
+}
+
+.cloud {
+    position: absolute;
+    animation: cloud-animation 10s infinite linear;
+    width: 350px;
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -15%;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0px;
+    }
+
+    40% {
+        bottom: 175px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 175px;
+    }
+
+    100% {
+        bottom: 0px;
+    }
+}
+
+@keyframes cloud-animation {
+    from {
+        right: -100%;
+    }
+
+    to {
+        right: 100%;
+    } 
+}

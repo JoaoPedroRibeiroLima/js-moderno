@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções geradoras</title>
+</head>
+<body>
+    <script>
+        /*function* cores() {
+            yield 'Vermelho'
+            yield 'Verde'
+            yield 'Azul'
+        }
+
+        let cor = cores()
+        console.log(cor.next().value)
+        console.log(cor.next().value)
+        console.log(cor.next().value)*/
+
+        function* perguntas() {
+            const nome=yield 'Qual seu nome?'
+            const esporte=yield 'Qual seu esporte favorito?'
+            return "Seu nome é " + nome + ', seu esporte favorito é ' + esporte
+        }        
+
+        const itp=perguntas()
+        console.log(itp.next().value)
+        console.log(itp.next('Bruno').value)
+        console.log(itp.next('Natação').value)
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Anônimas</title>
+</head>
+<body>
+    
+    <script>
+        //a função foi declarada dentro de uma variavel, e não como uma função por si propria
+        let f = function (...nums) {
+            let total = 0
+            for(num of nums) {
+                total += num
+            }
+            return total
+        }
+
+        console.log(f (10, 5, 10))
+
+        let f2 = new Function("v1", "v2", "return v1 + v2")
+
+        console.log(f2(3, 4))
+    </script>
+</body>
+</html>

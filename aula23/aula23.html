@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest</title>
+</head>
+<body>
+    <script>
+        function soma(...nums) {
+            let total = 0
+            nums.forEach(element => {
+                total += element
+            });
+            return total
+        }
+
+        console.log(soma(5, 10, 15, 20, 100))
+    </script>
+</body>
+</html>

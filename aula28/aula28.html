@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <div id="c1">HTML</div>
+    <div id="c2">CSS</div>
+    <div id="c3">Javascript</div>
+    <div id="c4">PHP</div>
+    <div id="c5">React</div>
+    <div id="c6">MySQL</div>
+
+    <script>
+        let el = document.getElementsByTagName('div')
+        el = [...el]
+        el.map((e, i) => {
+            console.log(e)
+            console.log(typeof e)
+        })
+        
+        const ling = ['HTML', 'CSS', 'Javascript', 'PHP', 'React']
+        let l = ling.map((element, i) => {
+            return(`${i + 1}º item - ${element}`)
+        })
+
+        console.log(ling)
+        console.log(l)
+    </script>
+</body>
+</html>

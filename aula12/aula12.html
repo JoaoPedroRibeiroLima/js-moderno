@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread</title>
+</head>
+<body>
+    <p>Curso de Javascript</p>
+    <p>CFB cursos</p>
+    <p>Tecnologia e estudos</p>
+
+    <script>
+        function soma(n1, n2, n3) {
+            return n1 + n2 + n3
+        }
+
+        var lista = [3, 3, 5]
+
+        console.log(soma(...lista))
+
+        var elementosP = document.getElementsByTagName('p')
+        var vetorElementosP = [...elementosP]
+        
+        console.log(vetorElementosP)
+        console.log(typeof vetorElementosP)
+
+        vetorElementosP.forEach(element => {
+            element.innerHTML = 'We build this city'
+        });
+
+        console.log(elementosP)
+        console.log(typeof elementosP)
+
+    </script>
+</body>
+</html>

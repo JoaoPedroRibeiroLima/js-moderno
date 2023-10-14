@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR IN e FOR OF</title>
+</head>
+<body>
+    <script>
+        let nums = [10, 20, 30, 40, 50]
+
+        for(num in nums) {
+            console.log(nums[num])
+        }
+
+        console.log('=-' * 15)
+
+        for(num in nums) {
+            console.log(num)
+        }
+
+        console.log('=-' * 15)
+
+        for(num of nums) {
+            console.log(num)
+        }
+    </script>
+</body>
+</html>
