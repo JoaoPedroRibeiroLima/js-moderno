@@ -3,6 +3,10 @@ const pipe = document.getElementsByClassName('pipe')[0]
 const cloud = document.getElementsByClassName('cloud')[0]
 let onJump = false
 let reset = false
+let actualScore = ''
+let highScore = ''
+const actualScoreSpan = document.getElementById('actualscore')
+const highScoreSpan = document.getElementById('highscore')
 
 document.addEventListener('keydown', () => {
     // detector de pulos
@@ -33,6 +37,7 @@ document.addEventListener('keydown', () => {
         reset = false
 
         verifier()
+        score()
     }
 })
 
@@ -61,7 +66,7 @@ const verifier = function() {
     const intervalo = setInterval(() => {
         const pipePosition = pipe.offsetLeft
         const marioPosition = Number(window.getComputedStyle(mario).bottom.replace('px', ''))
-        console.log(pipePosition)
+        //console.log(pipePosition)
         if (pipePosition <= 110 && pipePosition > 0 && marioPosition <= 100) {
             pipe.style.animation = 'none'
             pipe.style.left = `${pipePosition}px`
@@ -72,10 +77,41 @@ const verifier = function() {
             mario.style.width = '55px'
             mario.style.marginLeft = '50px'
             clearInterval(intervalo)
-            console.log(this)
             telaGameOver()
         }
     }, 10)
 }
 
+const score = function() {
+    intervalo = setInterval(() => {
+        if (reset != true && highScore < 9999) {
+            if (actualScore < 10) {
+                actualScore = `000${actualScore}`
+            }
+            else if (actualScore < 100) {
+                actualScore = `00${actualScore}`
+            }
+            else if (actualScore < 1000) {
+                actualScore = `0${actualScore}`
+            }
+            actualScoreSpan.innerHTML = actualScore
+
+            if (actualScore >= highScore) {
+                highScore = actualScore
+                highScoreSpan.innerHTML = actualScore
+            }
+            actualScore++
+        } else {
+            clearInterval(intervalo)
+            actualScore = 0
+        }
+
+        //easter-egg gigatonico
+        if(highScore == 9999) {
+            mario.setAttribute('src', './imagens/yoshi.gif')
+        }
+    }, 100)
+}
+
+score()
 let iniciarVerifier = verifier()
