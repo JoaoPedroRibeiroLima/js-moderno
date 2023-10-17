@@ -1,0 +1,25 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#centralizadora {
+    display: flex;
+    justify-content: center;
+}
+
+.task {
+    width: 400px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.feito {
+    background-color: purple;
+    color: white;
+}
