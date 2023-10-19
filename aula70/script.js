@@ -1,9 +1,11 @@
-const teclasNum = [...document.querySelectorAll('.num')]
+const teclasNum = [...document.querySelectorAll(".num")]
 const teclasOp = [...document.querySelectorAll('.op')]
 const teclaRes = document.querySelector('.res')
 const display = document.querySelector('.display')
 const ton = document.getElementById('ton')
 const tlimpar = document.getElementById('tlimpar')
+const tigual = document.getElementById('tigual')
+const tcy = document.getElementById('tcpy')
 
 let sinal = false
 let decimal = false
@@ -20,11 +22,41 @@ teclasNum.forEach((el) => {
                     display.innerHTML += evt.target.innerHTML
                 }
             }
+        } else {
+            if (display.innerHTML == "0") {
+                display.innerHTML = ""
+            }
+            display.innerHTML += evt.target.innerHTML
+        }
+    })
+})
+
+teclasOp.forEach((el) => {
+    el.addEventListener("click", (evt) => {
+        if (!sinal) {
+            sinal = true
+            if (display.innerHTML == "0") {
+                display.innerHTML = ""
+            }
+            if (evt.target.innerHTML == "x") {
+                display.innerHTML += "*"
+            } else {
+                display.innerHTML += evt.target.innerHTML
+            }
         }
     })
 })
 
 tlimpar.addEventListener('click', (evt) => {
-    display.innerHTML = "0"
     sinal = false
+    decimal = false
+    display.innerHTML = "0"
 })
+
+tigual.addEventListener("click", (evt) => {
+    sinal = false
+    decimal = false
+    const res = eval(display.innerHTML)
+    display.innerHTML = res
+})
+
